@@ -5,7 +5,7 @@
   "main": "build/index.html",
   "dependencies": {
     "@react-ui/core": "0.0.12",
-    "@react-ui/theme-default": "0.0.9",
+    "@react-ui/theme-default": "0.0.7",
     "classnames": "^2.2.0",
     "dthttp": "^2.0.0-beta10",
     "history": "^1.13.0",

@@ -1,20 +1,13 @@
 import React from 'react';
 import UI from '../ui';
+import styles from 'styles/components/cards/shipCard';
 const { Grid: {Col} } = UI;
 
 export default class ShipCard extends React.Component {
   render() {
-    const style = {
-      width: `218px`,
-      height: `300px`,
-      borderRadius: `4px`,
-      borderColor: `lightGray`,
-      marginLeft: `10px`,
-      marginTop: `10px`,
-    };
     return (
-      <Col xs="6" sm="4">
-        <img alt={this.props.name} src={this.props.image} style={style} />
+      <Col xs="6" sm="4" md="3" className={styles.cardCol}>
+        <img alt={this.props.name} src={this.props.image} className={styles.cardImg} />
       </Col>
     );
   }

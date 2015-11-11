@@ -1,5 +1,5 @@
 import React from 'react';
-import ShipCard from './ShipCard';
+import ShipCard from 'components/cards/shipCard';
 import UI from '../ui';
 const { Grid: {Row} } = UI;
 

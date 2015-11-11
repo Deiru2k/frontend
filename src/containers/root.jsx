@@ -1,6 +1,6 @@
 import React from 'react';
 import UI from 'components/ui';
-import ShipCards from '../components/cards/ShipCards';
+import ShipCards from 'components/cards/shipCards';
 const { Grid: {Container} } = UI;
 
 export default class Root extends React.Component {
@@ -16,7 +16,7 @@ export default class Root extends React.Component {
     ];
     return (
       <Container>
-        <ShipCards girls={girls} />;
+        <ShipCards girls={girls} />
       </Container>
     );
   }
