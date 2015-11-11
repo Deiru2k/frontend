@@ -10,4 +10,6 @@
 
 .cardCol {
   text-align: center;
+  cursor: pointer;
+  padding-bottom: 15px;
 }
