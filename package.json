@@ -4,7 +4,7 @@
   "description": "A hip way to keep track of your fleet!",
   "main": "build/index.html",
   "dependencies": {
-    "@react-ui/core": "0.0.12",
+    "@react-ui/core": "0.0.14",
     "@react-ui/theme-default": "0.0.7",
     "classnames": "^2.2.0",
     "dthttp": "^2.0.0-beta10",
@@ -63,7 +63,7 @@
   "homepage": "http://kancolle.io",
   "scripts": {
     "clean": "rimraf build",
-    "start": "NODE_ENV=development node webpack.server.dev.js",
+    "start": "node webpack.server.dev.js",
     "build": "NODE_ENV=production webpack -p --config webpack.config.production.js",
     "lint": "eslint --ext .jsx --ext .js src",
     "test": "npm run lint",
