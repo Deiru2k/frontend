@@ -1,7 +1,11 @@
 import {handleActions} from 'redux-actions';
 import * as types from 'constants/shipgirls';
 
-const initialState = {};
+const initialState = {
+  pagination: {
+    visiblePages: 4,
+  },
+};
 
 const shipgirls = handleActions({
   [types.LOAD_SHIPS]: (state) => ({
@@ -9,11 +13,12 @@ const shipgirls = handleActions({
     inProcess: true,
   }),
 
-  [types.LOAD_SHIPS_SUCCEEDED]: (state, {ships}) => ({
+  [types.LOAD_SHIPS_SUCCEEDED]: (state, {ships, pagination}) => ({
     ...state,
     inProcess: false,
 
     ships,
+    pagination,
   }),
 }, initialState);
 

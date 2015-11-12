@@ -1,0 +1,13 @@
+.pagination {
+  list-style: none;
+  list-style-type: none;
+  list-style-position: inside;
+  li {
+    display: inline;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .active {
+    background-color: lightgray;
+  }
+}

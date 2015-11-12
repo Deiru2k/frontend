@@ -6,18 +6,22 @@ const loadShipgirlsStarted = () => ({
   type: types.LOAD_SHIPS,
 });
 
-const loadShipgirlsSucceeded = ({data}) => ({
+const loadShipgirlsSucceeded = ({results, pagination, page}) => ({
   type: types.LOAD_SHIPS_SUCCEEDED,
-  ships: data,
+  ships: results,
+  pagination: {
+    ...pagination,
+    page,
+  },
 });
 
-function loadShipGirls(page) {
+function loadShipGirls(page = 0) {
   return (dispatch) => {
     dispatch(loadShipgirlsStarted());
-    return api.get(`shipgirls?page=${page}`).then(
+    return api.get(`catalog`, {page}).then(
       ({ status, body }) => {
         if (status === 200) {
-          dispatch(loadShipgirlsSucceeded(body));
+          dispatch(loadShipgirlsSucceeded({...body, page}));
         }
       },
     );
