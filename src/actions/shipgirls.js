@@ -11,11 +11,10 @@ const loadShipgirlsSucceeded = ({data}) => ({
   ships: data,
 });
 
-function loadShipGirls() {
+function loadShipGirls(page) {
   return (dispatch) => {
     dispatch(loadShipgirlsStarted());
-
-    return api.get(`shipgirls`).then(
+    return api.get(`shipgirls?page=${page}`).then(
       ({ status, body }) => {
         if (status === 200) {
           dispatch(loadShipgirlsSucceeded(body));
