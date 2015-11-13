@@ -6,10 +6,10 @@
   border-color: black;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 
 .cardCol {
   text-align: center;
-  cursor: pointer;
   padding-bottom: 15px;
 }

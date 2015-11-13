@@ -66,7 +66,7 @@
   "scripts": {
     "clean": "rimraf build",
     "start": "set NODE_ENV=development&&node webpack.server.dev.js",
-    "build": "NODE_ENV=production webpack -p --config webpack.config.production.js",
+    "build": "BABEL_ENV=production NODE_ENV=production webpack -p --config webpack.config.production.js",
     "lint": "eslint --ext .jsx --ext .js src",
     "test": "npm run lint",
     "test:production": "exit 0"

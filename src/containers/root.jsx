@@ -13,6 +13,8 @@ import createLogger from 'redux-logger';
 import reducers from 'reducers';
 
 import Main from 'containers/main';
+import ShipCards from 'containers/cards/shipCards';
+import ShipCard from 'containers/cards/shipCard';
 
 const history = createHistory();
 const logger = createLogger();
@@ -24,8 +26,9 @@ const store = compose(
 // app
 export default () => (
   <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={Main} />
+    <Router history={history} component={Main}>
+      <Route path="/" component={ShipCards} />
+      <Route path=":id" component={ShipCard} />
     </Router>
   </Provider>
 );

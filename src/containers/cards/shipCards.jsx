@@ -4,11 +4,11 @@ import ReactPaginate from 'react-paginate';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as ShipCardsActions from 'actions/shipgirls';
-const {Grid: {Row}} = UI;
+const {Grid: {Row, Container}} = UI;
 
 import styles from 'styles/containers/shipCards';
 
-import ShipCard from 'components/cards/shipCard';
+import Card from 'components/cards/card';
 
 class ShipCards extends React.Component {
   componentWillMount() {
@@ -23,7 +23,7 @@ class ShipCards extends React.Component {
   }
   render() {
     return (
-      <div>
+      <Container>
         <Row>
           <ReactPaginate previousLabel={"Prev"}
             nextLabel={"Next"}
@@ -38,11 +38,11 @@ class ShipCards extends React.Component {
         </Row>
         <Row>
           {this.getGirls().map(girl =>
-            <ShipCard key={girl.api_id} id={girl.api_id} name={girl.name}
-            card_no={girl.card_no} name_kanji={girl.name_kanji} image={girl.image} />
+            <Card key={girl.api_id} id={girl.api_id} name={girl.name}
+            card_no={girl.card_no} image={girl.image} />
           )}
         </Row>
-      </div>
+      </Container>
     );
   }
 }

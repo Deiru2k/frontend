@@ -1,3 +1,4 @@
 import shipgirls from './shipgirls';
+import shipgirl from './shipgirl';
 
-export default {shipgirls};
+export default {shipgirls, shipgirl};
