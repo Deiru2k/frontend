@@ -1,0 +1,41 @@
+@import '../variables';
+
+.nameBar {
+  background-color: $brand-primary;
+  color: #fff;
+  padding: 10px;
+}
+
+.imageCol {
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+.imageCol > img {
+  width: 100%;
+  height: auto;
+}
+
+.nameRight {
+  float: right;
+}
+
+.infoCol {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+@media (max-width: 767px) {
+  .imageCol {
+    font-size: 20px;
+    width: 100%;
+    height: 360px !important;
+    overflow-y: hidden;
+    padding-right: 15px;
+  }
+  .infoCol {
+    padding-left: 15px;
+  }
+}
+
+/* 735x360 */
