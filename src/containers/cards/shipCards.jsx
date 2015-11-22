@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as ShipCardsActions from 'actions/shipgirls';
-const {Grid: {Row, Container}} = UI;
+const {Grid: {Row, Container, Col}} = UI;
 
 import styles from 'styles/containers/shipCards';
 
@@ -12,40 +12,50 @@ import Card from 'components/cards/card';
 
 class ShipCards extends React.Component {
   componentWillMount() {
-    this.props.actions.loadShipGirls(1);
-  }
-  getGirls() {
-    console.log(this.props);
-    return this.props.ships || [];
+    this.page = Number(this.props.location.query.page) || 1;
+    this.props.actions.loadShipGirls(this.page);
   }
   changePage = (data) => {
+    this.context.history.pushState(null, `/catalog`, {page: data.selected + 1});
     this.props.actions.loadShipGirls(data.selected + 1);
   }
   render() {
+    const { ships = [], pagination = [] } = this.props;
     return (
-      <Container>
+      <Container fluid="true">
         <Row>
-          <ReactPaginate previousLabel={"Prev"}
-            nextLabel={"Next"}
-            breakLabel={"..."}
-            pageNum={this.props.pagination.total}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={4}
-            clickCallback={this.changePage}
-            containerClassName={styles.pagination}
-            subContainerClassName={styles.pagination}
-            activeClassName={"active"} />
+          <Col xs="12" sm="12" md="12" lg="10" lgOffset="1">
+            <Row className={styles.shipList}>
+              {ships.map(girl =>
+                <Card ship={girl} key={girl.api_id}/>
+              )}
+            </Row>
+          </Col>
         </Row>
         <Row>
-          {this.getGirls().map(girl =>
-            <Card key={girl.api_id} id={girl.api_id} name={girl.name}
-            card_no={girl.card_no} image={girl.image} />
-          )}
+          <Col xs="12" sm="12" md="12" lg="10" lgOffset="1" className={styles.paginationContainer}>
+            <ReactPaginate previousLabel={"<"}
+              nextLabel={">"}
+              breakLabel={"..."}
+              initialSelected = {Number(this.page) - 1}
+              pageNum={pagination.total}
+              marginPagesDisplayed={0}
+              pageRangeDisplayed={3}
+              clickCallback={this.changePage}
+              containerClassName={styles.paginationRoot}
+              subContainerClassName={styles.pagination}
+              activeClassName={styles.pageActive}
+            />
+          </Col>
         </Row>
       </Container>
     );
   }
 }
+
+ShipCards.contextTypes = {
+  history: React.PropTypes.object.isRequired,
+};
 
 const mapState = ({shipgirls}) => {
   return {

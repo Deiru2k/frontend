@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": "@dtrussia/eslint-config-dtrussia/react",
   "env": {
     "browser": true,
     "mocha": true,
@@ -9,6 +9,7 @@
     "google": true,
   },
   "rules": {
+    "camelcase": [0, {"properties": "never"}],
     "valid-jsdoc": 2,
     "no-else-return": 0,
     "no-extend-native": 0,
