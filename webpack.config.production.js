@@ -1,7 +1,12 @@
-import webpack from 'webpack';
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+// import webpack from 'webpack';
+// import path from 'path';
+// import HtmlWebpackPlugin from 'html-webpack-plugin';
+// import ExtractTextPlugin from 'extract-text-webpack-plugin';
+
+var webpack = require('webpack');
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -9,7 +14,7 @@ module.exports = {
     path.join(__dirname, `src`, `index`),
   ],
   output: {
-    path: path.join(__dirname, `src`),
+    path: path.join(__dirname, `build`),
     filename: `app.js`,
     publicPath: `/static/`,
   },
@@ -17,12 +22,12 @@ module.exports = {
     noParse: [`node_modules/react`],
     loaders: [
       { test: /(.js|.jsx)/, exclude: /node_modules/, loaders: [`babel?cacheDirectory=true`] },
-      { test: /\.pcss/, loader: ExtractTextPlugin.extract(`style`, `css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss`) },
+      { test: /\.css/, loader: ExtractTextPlugin.extract(`style`, `css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss`) },
     ],
   },
   resolve: {
     root: path.join(__dirname, `src`),
-    extensions: [``, `.js`, `.json`, `.jsx`, `.pcss`, `.svg`],
+    extensions: [``, `.js`, `.json`, `.jsx`, `.css`, `.svg`],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
