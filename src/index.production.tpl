@@ -5,7 +5,7 @@
     <title>TITLE HERE</title>
 
     {% for (var css in o.htmlWebpackPlugin.files.css) { %}
-    <link href="/{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
+    <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
     {% } %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">

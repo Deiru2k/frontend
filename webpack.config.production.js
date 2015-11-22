@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, `build`),
     filename: `app.js`,
-    publicPath: `static/`,
+    publicPath: `/`,
   },
   module: {
     noParse: [`node_modules/react`],
