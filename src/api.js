@@ -1,4 +1,4 @@
-import dtHttp from 'dtHttp';
+import dtHttp from 'dthttp';
 
 const api = new dtHttp(`http://api-dev.kancolle.io/api/`);
 // const api = new dtHttp(`http://192.168.1.83:8000/api/`);
