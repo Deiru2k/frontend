@@ -24,7 +24,7 @@
   "dependencies": {
     "@dtrussia/utils.js": "^1.0.1",
     "@react-ui/core": "0.0.21",
-    "@react-ui/theme-default": "0.0.9",
+    "@react-ui/theme-default": "0.0.10",
     "classnames": "^2.2.0",
     "dateformat": "^1.0.12",
     "dthttp": "^2.0.0-beta15",

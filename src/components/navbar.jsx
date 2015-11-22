@@ -7,6 +7,7 @@ const {Grid: {Container, Row, Col}} = UI;
 
 
 export default class Navbar extends React.Component {
+  constructor(props) { super(props); }
   render() {
     return (
       <section className={styles.navbar}>

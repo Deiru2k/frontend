@@ -11,6 +11,7 @@ import styles from 'styles/containers/shipCards';
 import Card from 'components/cards/card';
 
 class ShipCards extends React.Component {
+  constructor(props) { super(props); }
   componentWillMount() {
     this.page = Number(this.props.location.query.page) || 1;
     this.props.actions.loadShipGirls(this.page);

@@ -6,6 +6,7 @@ import {Link} from 'react-router';
 const { Grid: {Col} } = UI;
 
 export default class Card extends React.Component {
+  constructor(props) { super(props); }
   render() {
     return (
       <Col xs="6" sm="4" md="2" lg="2" className={styles.cardCol}>
