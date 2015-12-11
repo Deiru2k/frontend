@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>TITLE HERE</title>
+    <title>[DEV] Kancolle.io</title>
 
     {% for (var css in o.htmlWebpackPlugin.files.css) { %}
     <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">

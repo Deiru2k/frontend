@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   entry: [
-    path.join(__dirname, 'src', process.env.MODULE, 'app'),
+    path.join(__dirname, 'src'),
   ],
   output: {
     path: path.join(__dirname, 'build'),
@@ -33,7 +33,7 @@ const config = {
       'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', process.env.MODULE, 'index.production.html')
+      template: path.join(__dirname, 'src', 'index.production.tpl')
     }),
     new ExtractTextPlugin('app.[contenthash].css', {
       allChunks: true,
