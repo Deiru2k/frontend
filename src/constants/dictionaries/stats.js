@@ -1,0 +1,15 @@
+export default {
+  health: `HP`,
+  armor: `Armor`,
+  evasion: `Evasion`,
+  aircraft: `Capacity`,
+  line_of_sight: `LOS`,
+  range: `Range`,
+  accuracy: `Accuracy`,
+  firepower: `Firepower`,
+  torpedo: `Torpedo`,
+  anti_air: `AA`,
+  anti_sub: `ASW`,
+  speed: `Speed`,
+  luck: `Luck`,
+};
