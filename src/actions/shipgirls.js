@@ -2,30 +2,29 @@ import api from 'api';
 import * as types from 'constants/shipgirls';
 
 // load shipgirls
-const loadShipgirlsStarted = () => ({
+const loadShipsStarted = () => ({
   type: types.LOAD_SHIPS,
 });
 
-const loadShipgirlsSucceeded = ({results, pagination, page}) => ({
+const loadShipsSucceeded = (ships) => ({
   type: types.LOAD_SHIPS_SUCCEEDED,
-  ships: results,
-  pagination: {
-    ...pagination,
-    page,
-  },
+  ...ships,
 });
 
-function loadShipGirls(page = 0) {
+const loadShipsFailed = ({ errors }) => ({
+  type: types.LOAD_SHIPS_FAILED,
+  ...errors,
+});
+
+function loadShips(page = 0) {
   return (dispatch) => {
-    dispatch(loadShipgirlsStarted());
+    dispatch(loadShipsStarted());
+
     return api.get(`catalog`, {page}).then(
-      ({ status, body }) => {
-        if (status === 200) {
-          dispatch(loadShipgirlsSucceeded({...body, page}));
-        }
-      },
+      ({ body }) => dispatch(loadShipsSucceeded(body)),
+      ({ body }) => dispatch(loadShipsFailed(body)),
     );
   };
 }
 
-export {loadShipGirls};
+export { loadShips };

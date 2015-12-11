@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as ShipCardsActions from 'actions/shipgirls';
 const {Grid: {Row, Container, Col}} = UI;
+import { history } from 'config/routes';
 
 import styles from 'styles/containers/shipCards';
 
@@ -14,11 +15,11 @@ class ShipCards extends React.Component {
   constructor(props) { super(props); }
   componentWillMount() {
     this.page = Number(this.props.location.query.page) || 1;
-    this.props.actions.loadShipGirls(this.page);
+    this.props.actions.loadShips(this.page);
   }
   changePage = (data) => {
-    this.context.history.pushState(null, `/catalog`, {page: data.selected + 1});
-    this.props.actions.loadShipGirls(data.selected + 1);
+    history.pushState(null, `/catalog`, {page: data.selected + 1});
+    this.props.actions.loadShips(data.selected + 1);
   }
   render() {
     const { ships = [], pagination = [] } = this.props;
@@ -54,16 +55,10 @@ class ShipCards extends React.Component {
   }
 }
 
-ShipCards.contextTypes = {
-  history: React.PropTypes.object.isRequired,
-};
-
-const mapState = ({shipgirls}) => {
-  return {
-    pagination: shipgirls.pagination,
-    ships: shipgirls.ships,
-  };
-};
+const mapState = ({shipgirls: {items = [], pagination = {}}}) => ({
+  pagination,
+  items,
+});
 
 const mapDispatch = (dispatch) => ({
   actions: bindActionCreators(ShipCardsActions, dispatch),

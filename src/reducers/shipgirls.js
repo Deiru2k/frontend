@@ -8,18 +8,11 @@ const initialState = {
 };
 
 const shipgirls = handleActions({
-  [types.LOAD_SHIPS]: (state) => ({
-    ...state,
-    inProcess: true,
+  [types.LOAD_SHIPS]: () => ({
+    isFetching: true,
   }),
 
-  [types.LOAD_SHIPS_SUCCEEDED]: (state, {ships, pagination}) => ({
-    ...state,
-    inProcess: false,
-
-    ships,
-    pagination,
-  }),
+  [types.LOAD_SHIPS_SUCCEEDED]: (obj) => (obj),
 }, initialState);
 
 export default shipgirls;

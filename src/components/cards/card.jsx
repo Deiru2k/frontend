@@ -8,14 +8,15 @@ const { Grid: {Col} } = UI;
 export default class Card extends React.Component {
   constructor(props) { super(props); }
   render() {
+    const {item} = this.props;
     return (
       <Col xs="6" sm="4" md="2" lg="2" className={styles.cardCol}>
-        <Link to={`/catalog/${this.props.ship.api_id}`} className={styles.cardImg}>
-          <span className={styles.shipNo}>#{this.props.ship.card_no}</span>
-          <span className={styles.shipName}>{this.props.ship.name}</span>
-          <span className={styles.shipType}>{this.props.ship.ship_type.code}</span>
-          { /* <span className={styles.shipClass}>{this.props.ship.ship_class.name} Class</span> */}
-          <img alt={this.props.ship.name} src={this.props.ship.image}/>
+        <Link to={`/catalog/${item.api_id}`} className={styles.cardImg}>
+          <span className={styles.shipNo}>#{item.card_no}</span>
+          <span className={styles.shipName}>{item.name}</span>
+          <span className={styles.shipType}>{item.ship_type.code}</span>
+          { /* <span className={styles.shipClass}>{item.ship_class.name} Class</span> */}
+          <img alt={item.name} src={item.image}/>
         </Link>
       </Col>
     );
