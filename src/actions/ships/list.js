@@ -6,9 +6,9 @@ const loadShipsStarted = () => ({
   type: types.LOAD_SHIPS,
 });
 
-const loadShipsSucceeded = (ships) => ({
+const loadShipsSucceeded = (data) => ({
   type: types.LOAD_SHIPS_SUCCEEDED,
-  ...ships,
+  ...data,
 });
 
 const loadShipsFailed = ({ errors }) => ({

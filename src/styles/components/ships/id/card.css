@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../../../variables';
 
 .nameBar {
   background-color: $brand-primary;
@@ -42,11 +42,3 @@
     padding-left: 15px;
   }
 }
-
-/*@media (max-width: 767px) and (orientation: landscape) {
-  .imageCol {
-    height: 300px !important;
-  }
-}*/
-
-/* 735x360 */

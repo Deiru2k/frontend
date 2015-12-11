@@ -3,33 +3,35 @@ import UI from 'components/ui';
 import ReactPaginate from 'react-paginate';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as ShipCardsActions from 'actions/shipgirls';
-const {Grid: {Row, Container, Col}} = UI;
 import { history } from 'config/routes';
+import * as ShipsActions from 'actions/ships/list';
+import Card from 'components/ships/list/card';
+import styles from 'styles/containers/ships/list';
 
-import styles from 'styles/containers/shipCards';
+const {Grid: {Row, Container, Col}, Loading} = UI;
 
-import Card from 'components/cards/card';
-
-class ShipCards extends React.Component {
+class List extends React.Component {
   constructor(props) { super(props); }
   componentWillMount() {
     this.page = Number(this.props.location.query.page) || 1;
     this.props.actions.loadShips(this.page);
   }
   changePage = (data) => {
-    history.pushState(null, `/catalog`, {page: data.selected + 1});
+    history.push(`/catalog?page=${data.selected + 1}`);
     this.props.actions.loadShips(data.selected + 1);
   }
   render() {
-    const { ships = [], pagination = [] } = this.props;
+    const { list: {items = [], pagination = [], isFetching }} = this.props.state;
     return (
       <Container fluid="true">
         <Row>
+          {isFetching && (
+            <Loading />
+          )}
           <Col xs="12" sm="12" md="12" lg="10" lgOffset="1">
             <Row className={styles.shipList}>
-              {ships.map(girl =>
-                <Card ship={girl} key={girl.api_id}/>
+              {items.map(item =>
+                (<Card item={item} key={item.api_id}/>)
               )}
             </Row>
           </Col>
@@ -55,13 +57,12 @@ class ShipCards extends React.Component {
   }
 }
 
-const mapState = ({shipgirls: {items = [], pagination = {}}}) => ({
-  pagination,
-  items,
+const mapState = ({ shipgirls }) => ({
+  state: shipgirls,
 });
 
 const mapDispatch = (dispatch) => ({
-  actions: bindActionCreators(ShipCardsActions, dispatch),
+  actions: bindActionCreators(ShipsActions, dispatch),
 });
 
-export default connect(mapState, mapDispatch)(ShipCards);
+export default connect(mapState, mapDispatch)(List);

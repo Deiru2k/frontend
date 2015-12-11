@@ -1,6 +1,6 @@
 import React from 'react';
-import UI from '../ui';
-import styles from 'styles/components/cards/card';
+import UI from 'components/ui';
+import styles from 'styles/components/ships/list/card';
 import {Link} from 'react-router';
 
 const { Grid: {Col} } = UI;

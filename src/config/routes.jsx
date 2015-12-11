@@ -9,8 +9,8 @@ const history = createHistory();
 
 export default (
   <Route component={Containers.Root}>
-    <Route path="/catalog" component={Containers.Cards.ShipCards} />
-    <Route path="/catalog/:id" component={Containers.Cards.ShipCard} />
+    <Route path="/catalog" component={Containers.Ships.List} />
+    <Route path="/catalog/:id" component={Containers.Ships.Id} />
     <Redirect from="/" to="/catalog" />
   </Route>
 );

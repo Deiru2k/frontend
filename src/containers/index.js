@@ -1,9 +1,8 @@
 import Root from 'containers/root';
 
-import Cards from 'containers/cards';
+import Ships from 'containers/ships';
 
 export default {
   Root,
-
-  Cards,
+  Ships,
 };
