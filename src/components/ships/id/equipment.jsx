@@ -10,8 +10,8 @@ export default class Equipment extends React.Component {
   render() {
     return (
       <Row className={styles.equipment}>
-        <Col xs="10" className={styles.equipmentName}>{this.props.item.name || this.props.item.name_kanji}</Col>
-        <Col xs="2">{this.props.capacity}</Col>
+        <Col xs="10">{this.props.item.name || this.props.item.name_kanji}</Col>
+        <Col xs="2" className={styles.valuesRight}>{this.props.capacity}</Col>
       </Row>
     );
   }

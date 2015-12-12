@@ -2,3 +2,7 @@
   float: right !important;
   text-align: right;
 }
+
+.statCol {
+  padding-left: 15px;
+}

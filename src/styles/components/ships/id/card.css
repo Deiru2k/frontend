@@ -1,14 +1,13 @@
 @import '../../../variables';
 
-.nameBar {
+.nameBar, .sectionBar {
   background-color: $brand-primary;
   color: #fff;
   padding: 10px;
 }
 
-.imageCol {
-  margin-right: 0px;
-  padding-right: 0px;
+.sectionBar {
+  margin-top: 20px;
 }
 
 .imageCol > img {
@@ -20,15 +19,10 @@
   float: right;
 }
 
-.infoCol {
-  margin-left: 0px;
-  padding-left: 0px;
-}
-
 .equipment, .stats {
   margin-top: 10px;
-  margin-left: 10px;
 }
+
 
 @media (max-width: 767px) {
   .imageCol {
@@ -40,5 +34,11 @@
   }
   .infoCol {
     padding-left: 15px;
+  }
+}
+
+@media (max-width: 520px) {
+  .imageCol {
+    height: 200px !important;
   }
 }

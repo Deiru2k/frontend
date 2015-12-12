@@ -1,4 +1,4 @@
-export default {
+const statNames = {
   health: `HP`,
   armor: `Armor`,
   evasion: `Evasion`,
@@ -13,3 +13,14 @@ export default {
   speed: `Speed`,
   luck: `Luck`,
 };
+
+const statValues = {
+  speed: {
+    10: `Fast`,
+  },
+  range: {
+    1: `Short`,
+  },
+};
+
+export {statNames, statValues};
