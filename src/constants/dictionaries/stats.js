@@ -17,9 +17,13 @@ const statNames = {
 const statValues = {
   speed: {
     10: `Fast`,
+    5: `Slow`,
   },
   range: {
     1: `Short`,
+    2: `Medium`,
+    3: `Long`,
+    4: `Very Long`,
   },
 };
 

@@ -1,8 +1,36 @@
-.valuesRight, .valuesRight > span {
-  float: right !important;
+@import "../../../variables";
+
+.statCol {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.statTable {
+  margin-bottom: 0;
+}
+
+.statName {
+  width: 100%;
+  text-align: left;
+  padding-left: 0;
+}
+
+.iconCell {
+  width: 16px !important;
+}
+
+.statIcon {
+  padding-right: 5px;
+}
+
+.statValue {
+  width: auto;
+  padding-right: 0;
   text-align: right;
 }
 
-.statCol {
-  padding-left: 15px;
+@media (max-width: 991px) {
+  .rightStatHeader {
+    display: none;
+  }
 }

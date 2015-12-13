@@ -3,11 +3,29 @@
 .nameBar, .sectionBar {
   background-color: $brand-primary;
   color: #fff;
+  overflow: hidden;
   padding: 10px;
 }
 
 .sectionBar {
   margin-top: 20px;
+}
+
+.imageCol, .infoCol {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 0;
+}
+
+.imageCol {
+  width: 218px;
+  height: 300px;
+  float: left;
+}
+
+.infoCol {
+  width: calc(100% - 218px);
+  float: right;
 }
 
 .imageCol > img {
@@ -23,6 +41,10 @@
   margin-top: 10px;
 }
 
+.equipment > h3 {
+  margin-top: .8rem;
+}
+
 
 @media (max-width: 767px) {
   .imageCol {
@@ -32,7 +54,11 @@
     overflow-y: hidden;
     padding-right: 15px;
   }
+  .nameBar > .nameRight {
+    float: left;
+  }
   .infoCol {
+    width: 100%;
     padding-left: 15px;
   }
 }

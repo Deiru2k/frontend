@@ -2,7 +2,7 @@ import React from 'react';
 import UI from 'components/ui';
 import styles from 'styles/components/ships/id/card';
 import Equipment from 'components/ships/id/equipment';
-import Stat from 'components/ships/id/stats';
+import Stats from 'components/ships/id/stats';
 import Charts from 'react-chartjs';
 
 const {Grid: {Row, Col}} = UI;
@@ -45,20 +45,15 @@ class Card extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col xs="12" sm="3" md="3" className={styles.imageCol}>
+          <Col xs="12" sm="4" md="3" className={styles.imageCol}>
             <img src={item.image} />
           </Col>
-          <Col xs="12" sm="9" md="9" className={styles.infoCol}>
+          <Col xs="12" sm="8" md="9" className={styles.infoCol}>
             <Row>
-              <Col xs="12" sm="6" md="6" className={styles.stats}>
-                <h3>Stats</h3>
-                <Row>
-                  {Object.keys(item.stats).map((stat, index) =>
-                    <Stat stat={stat} values={item.stats[stat]} key={index} />
-                  )}
-                </Row>
+              <Col xs="12" sm="7" md="7" className={styles.stats}>
+                <Stats stats={item.stats} />
               </Col>
-              <Col xs="12" sm="6" md="6" className={styles.equipment}>
+              <Col xs="12" sm="5" md="5" className={styles.equipment}>
                 <h3>Equipment</h3>
                 {item.slots.map((slot, index) =>
                 <Equipment item={slot} key={index}

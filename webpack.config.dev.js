@@ -9,13 +9,13 @@ const config = {
   output: {
     path: path.join(__dirname, 'src'),
     filename: 'app.js',
-    publicPath: '/static/',
+    publicPath: '/',
   },
   module: {
     noParse: ['node_modules/react'],
     loaders: [
       { test: /(.js|.jsx)/, exclude: /node_modules/, loaders: ['babel?cacheDirectory=true'] },
-      { test: /src\/[^\/]+\/assets\/icons\/[^\.]+\.svg/, loader: 'svg-sprite!svgo?useConfig=svgoIcons' },
+      { test: /src\/assets\/icons\/[^\.]+\.svg/, loader: 'svg-sprite!svgo?useConfig=svgoIcons' },
       { test: /\.css/, loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss' },
     ],
   },
