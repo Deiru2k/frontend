@@ -31,6 +31,7 @@
     "dthttp": "2.0.0-beta15",
     "history": "1.13.1",
     "isomorphic-fetch": "2.2.0",
+    "promise-polyfill": "^2.1.0",
     "react": "0.14.3",
     "react-auto-form": "1.2.4",
     "react-chartjs": "^0.6.0",

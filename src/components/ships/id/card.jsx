@@ -56,8 +56,9 @@ class Card extends React.Component {
               <Col xs="12" sm="5" md="5" className={styles.equipment}>
                 <h3>Equipment</h3>
                 {item.slots.map((slot, index) =>
-                <Equipment item={slot} key={index}
-                capacity={item.slot_space[index]} />)}
+                  <Equipment item={slot} key={index}
+                  capacity={item.slot_space[index]} />
+                )}
               </Col>
             </Row>
           </Col>
